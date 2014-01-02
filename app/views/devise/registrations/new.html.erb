@@ -1,0 +1,25 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name, label: 'First Name', required: true %>
+    <%= f.input :last_name, label: 'Last Name', required: true %>
+    <%= f.input :email, label: 'E-mail Address', required: true %>
+    <%= f.input :password, label: 'Password', required: true %>
+    <%= f.input :password_confirmation, label: 'Password Confirmation', required: true %>
+    <%= f.input :birth_month, label: 'Month', collection: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+    <%= f.input :birth_day, label: 'Day', collection: 1..31 %>
+    <%= f.input :birth_year, label: 'Year', collection: 1930..2000 %>
+    <%= f.input :gender, label: 'Gender', collection: ['Male', 'Female', 'Prefer not to say'] %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign Up" %>
+     </div>
+
+  <%= link_to 'Return Home', root_path %>
+<% end %>
+
+<%= render "devise/shared/links" %>
