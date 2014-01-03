@@ -17,22 +17,22 @@ feature 'existing user signs in', %Q{
     user = FactoryGirl.create(:user)
 
     visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_link('sign in', match: :first)
+    fill_in 'user_email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'sign in'
 
     expect(page).to have_content('Welcome back to throwback!')
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('sign out')
   end
 
 
   scenario 'non-existant email/password is supplied' do
     visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: 'new@user.com'
-    fill_in 'Password', with: 'newpassword'
-    click_button 'Sign In'
+    click_link('sign in', match: :first)
+    fill_in 'user_email', with: 'new@user.com'
+    fill_in 'user_password', with: 'newpassword'
+    click_button 'sign in'
 
     expect(page).to_not have_content('Welcome back to throwback!')
     expect(page).to_not have_content('Sign Out')
@@ -43,25 +43,27 @@ feature 'existing user signs in', %Q{
     user = FactoryGirl.create(:user)
 
     visit root_path
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'incorrectpassword'
-    click_button 'Sign In'
+    click_link('sign in', match: :first)
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: 'incorrectpassword'
+    click_button 'sign in'
 
     expect(page).to_not have_content('Welcome back to throwback!')
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('sign out')
     expect(page).to have_content('Oops! Invalid password.  Please try again.')
   end
 
   scenario 'already authenticated user cannot re-log in' do
     user = FactoryGirl.create(:user)
+    
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'sign in'
 
-    expect(page).to have_content('Sign Out')
-    expect(page).to_not have_content('Sign In')
+    expect(page).to have_content('sign out')
+    expect(page).to_not have_content('sign in')
 
     visit new_user_session_path
 

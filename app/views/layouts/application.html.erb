@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>throwback - your story, your way</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>throwback</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
-  <nav>
-    <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <li><%= link_to 'Sign Up Today!', new_user_registration_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+
+<div class="container-narrow">
+  <div class="masthead">
+    <%= render 'layouts/user_header' %>
+    <h4 class="muted"><%= link_to 'throwback', root_path %></h4>
+      <h5 class='muted'>your story, your way</h5>
+  </div>
+  <hr />
+  
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
+
+</div>
 
 </body>
 </html>

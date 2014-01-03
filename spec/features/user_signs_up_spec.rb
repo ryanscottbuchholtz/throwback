@@ -18,28 +18,28 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'specify valid and required information (happy path)' do
     visit root_path
-    click_link 'Sign Up Today!'
-    fill_in 'First Name', with: 'Ryan'
-    fill_in 'Last Name', with: 'Buchholtz'
-    fill_in 'E-mail Address', with: 'ryanscottbuchholtz@gmail.com'
+    click_link('sign up', match: :first)
+    fill_in 'first name', with: 'Ryan'
+    fill_in 'last name', with: 'Buchholtz'
+    fill_in 'e-mail address', with: 'ryanscottbuchholtz@gmail.com'
     fill_in 'user_password', with: 'password'
-    fill_in 'Password Confirmation', with: 'password'
-    select  'September', from: 'Month'
-    select 25, from: 'Day'
-    select 1976, from: 'Year'
-    select 'Male', from: 'Gender'
+    fill_in 'user_password_confirmation', with: 'password'
+    select  'September', from: 'month'
+    select 25, from: 'day'
+    select 1976, from: 'year'
+    select 'Male', from: 'gender'
 
-    click_button 'Sign Up'
+    click_button 'sign up'
 
     expect(page).to have_content("Welcome to throwback!")
     expect(page).to have_content("Let's begin building your profile")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("sign out")
   end
 
   scenario 'required information is not supplied' do
     visit root_path
-    click_link 'Sign Up Today!'
-    click_button 'Sign Up'
+    click_link('sign up', match: :first)
+    click_button 'sign up'
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Sign Out')
@@ -47,14 +47,14 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'password confirmation does not match confirmation' do
     visit root_path
-    click_link 'Sign Up Today!'
+    click_link('sign up', match: :first)
 
     fill_in 'user_password', with: 'password'
-    fill_in 'Password Confirmation', with: 'anotherpassword'
-    click_button 'Sign Up'
+    fill_in 'user_password_confirmation', with: 'anotherpassword'
+    click_button 'sign up'
 
-    expect(page).to have_content("doesn't match")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to have_content("Please review the problems below")
+    expect(page).to_not have_content("sign out")
   end
 
 end
