@@ -24,10 +24,6 @@ feature 'A new user signs up with Throwback', %Q{
     fill_in 'e-mail address', with: 'ryanscottbuchholtz@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'user_password_confirmation', with: 'password'
-    select  'September', from: 'month'
-    select 25, from: 'day'
-    select 1976, from: 'year'
-    select 'Male', from: 'gender'
 
     click_button 'sign up'
 
