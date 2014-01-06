@@ -27,7 +27,7 @@ feature 'existing user updates profile', %Q{
 
     click_link 'my profile'
 
-    expect(page).to have_content('profile update')
+    expect(page).to have_content('profile updated')
    
   end
 
