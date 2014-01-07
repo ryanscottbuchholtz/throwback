@@ -26,8 +26,10 @@ feature 'existing user updates profile', %Q{
     expect(page).to have_content('sign out')
 
     click_link 'my profile'
+    click_link 'edit your profile'
+    click_button 'update'
 
-    expect(page).to have_content('profile updated')
+    expect(page).to have_content('successfully updated')
    
   end
 
