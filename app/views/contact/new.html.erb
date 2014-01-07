@@ -14,8 +14,12 @@
 <br>
     <%= f.button :submit, "submit" %>
 <br>
-
+  <% if user_signed_in? %>
+  <%= link_to 'back', :back %>
+  <% else %>
   <%= link_to 'return home', root_path %>
+  <% end %>
+
 <% end %>  
 
 </div>  
