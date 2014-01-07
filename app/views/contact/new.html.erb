@@ -1,0 +1,21 @@
+<div class="border-form-div">
+<h2>contact us!</h2><br>
+
+<%= simple_form_for @message, url: contact_path do |f| %>
+
+  <%= f.error_notification %>
+
+    <%= f.input :first_name, label: false, required: true, placeholder: 'first name' %>
+    <%= f.input :last_name, label: false, required: true, placeholder: 'last name' %>
+    <%= f.input :email, label: false, required: true, placeholder: 'e-mail address' %>
+    <%= f.input :subject, label: false, required: true, placeholder: 'subject' %>
+    <%= f.input :body, label: false, required: true, placeholder: 'message', cols: '28',rows: '5'%><br>
+
+<br>
+    <%= f.button :submit, "submit" %>
+<br>
+
+  <%= link_to 'return home', root_path %>
+<% end %>  
+
+</div>  

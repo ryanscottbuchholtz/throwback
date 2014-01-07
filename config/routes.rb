@@ -2,6 +2,13 @@ Throwback::Application.routes.draw do
   devise_for :users
   resources :users
   resources :dashboard, only: [:index]
+
+  resources :contact, only: [:new, :create]
+  get 'contact' => 'contacts#new'
+  post 'contact' => 'contacts#create'
+
+  #match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  #match 'contact' => 'contact#create', :as => 'contact2', :via => :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
