@@ -12,7 +12,7 @@
     <%= f.input :body, label: false, required: true, placeholder: 'message', cols: '28',rows: '5'%><br>
 
 <br>
-    <%= f.button :submit, "submit" %>
+    <%= f.button :submit, "submit", :class => "btn btn-primary" %>
 <br>
   <% if user_signed_in? %>
   <%= link_to 'back', :back %>
