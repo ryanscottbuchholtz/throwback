@@ -1,20 +1,44 @@
-<div class="jumbotron">
-  <% if user_signed_in? %>
-    <h1>Welcome back to throw<i>Back</i>!</h1>
-    <p class="lead">
-      You are already signed in.
-    </p>
-    <%= link_to "Dashboard", dashboard_index_path, :class => 'btn btn-success' %>
-  <% else %>
-    <h1>Welcome to throw<i>Back</i>!</h1>
-    <p class="lead">
-      Sign in or sign up to begin building your throw<i>Back</i> timeline today.    </p>
-    <div class="row-fluid">
-      <div class="span6">
-        <%= link_to "sign in", new_user_session_path, :class => "btn btn-success" %>
-           
-        <%= link_to "sign up", new_user_registration_path, :class => "btn btn-success" %>
-      
-    </div>
-  <% end %>
-</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <body>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Your story, Your way!</h1>
+        <p class="lead">Your story is THE most important story. Tell it today! Easy exercises to begin building your autobiography. Preserve your past and share favorite stories with friends and family. Build a collaborative timeline of the events that made you, You.</p>
+        <% if user_signed_in? %>
+        <p><%= link_to "Your Dashboard", dashboard_index_path, :class => "btn btn-lg btn-success" %></p>
+        <% else %>
+        <p><%= link_to "Get Started Today", new_user_registration_path, :class => "btn btn-lg btn-success" %></p>
+        <% end %>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>My story?  Why?</h2>
+          <p>Every one of us has a story.  And each of those stories is worthy of preservation.  Maybe for you, and maybe for others?</p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Power of Memory</h2>
+          <p></p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Mental Exercise</h2>
+          <p></p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Ryan Scott Buchholtz 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>

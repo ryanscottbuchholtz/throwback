@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.update(user_params)
-      redirect_to dashboard_index_path(current_user), notice: "Profile successfully updated"
+      redirect_to user_path(current_user), notice: "Profile successfully updated"
     else
       render action: 'edit'
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 private
 
 def user_params
-  params.require(current_user).permit(:first_name, :last_name, :birth_year, :birth_month, :birth_day)
+  params.require(:user).permit(:first_name, :last_name, :birth_year, :birth_month, :birth_day, :gender)
 end
 
 

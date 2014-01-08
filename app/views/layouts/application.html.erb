@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>throwback</title>
+  <title>Throwback</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="container-narrow">
-  <div class="masthead">
     <%= render 'layouts/user_header' %>
-    <h4 class="muted">
-      <% if user_signed_in? %>
-      <%= link_to 'throwback', dashboard_index_path(current_user) %></h4>
-      <% else %>
-      <%= link_to 'throwback', root_path %>
-      <% end %>
-      <h5 class='muted'>your story, your way</h5>
-  </div>
-  <hr />
   
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <%= yield %>
-
-</div>
 
 </body>
 </html>

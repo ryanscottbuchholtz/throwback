@@ -1,8 +1,7 @@
 <h1>your user profile</h2>
   <ul>
-    <li>name</li>
-    <li>clickable field</li>
-    <li>another clickable field for updating</li>
+    <li><b>Name:  </b><%= @user.first_name+' '+@user.last_name %></li>
+    <li><b>E-Mail:  </b><%= @user.email %></li>
   </ul>
 
-<%= link_to 'edit your profile', edit_user_path(current_user) %>
+<%= link_to 'edit your profile', edit_user_registration_path(current_user) %>

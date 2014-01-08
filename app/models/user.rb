@@ -6,19 +6,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  @months = [
-    'January', 
-    'February', 
-    'March', 
-    'April', 
-    'May', 
-    'June', 
-    'July', 
-    'August', 
-    'September', 
-    'October', 
-    'November', 
-    'Deceember'
-  ]
 
 end
