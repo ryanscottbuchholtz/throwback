@@ -9,6 +9,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def random_show
+    @random_question = Question.where(params[:category_id].shuffle[0])
+  end
+
+
   def new
     @question = Question.new
   end

@@ -14,8 +14,8 @@
           <li><%= link_to "Home", root_path %></li>
           <% end %>
           <li><%= link_to "Blog", 'http://ryanscottbuchholtz.blogspot.com' %></li>
-          <li><%= link_to "Testimonials", root_path %></li>
-          <li><%= link_to "Sample Exercise", root_path %></li>
+          <li><%= link_to "Testimonials", testimonials_path %></li>
+          <li><%= link_to "Sample Exercise", samples_path %></li>
           <li><%= link_to "Contact Us", new_contact_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>

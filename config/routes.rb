@@ -7,8 +7,19 @@ Throwback::Application.routes.draw do
   get 'contact' => 'contacts#new'
   post 'contact' => 'contacts#create'
 
-  resources :categories
+  resources :categories do
+    resources :questions, only: [:index]
+  end
+
   resources :questions
+
+  resources :questions do
+    resources :memory
+  end
+
+  resources :testimonials, only: [:index]
+
+  resources :samples, only: [:index]
 
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get
   #match 'contact' => 'contact#create', :as => 'contact2', :via => :post
