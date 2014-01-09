@@ -9,25 +9,25 @@ feature 'authenticated user selects a memory to write', %Q{
   # ACCEPTANCE CRITERIA
   # * User signs in
   # * User is re-directed to dashboard
-  # * User is presented with a sidebar of category options
-  # * User clicks 'Elementary School' category
-  # * User is presented with a list of memoir options that they haven't completed before
+  # * User is presented with category options
+  # * User clicks 'Travel' category
+  # * User is presented with a question and form to complete memory
+  # * User completes memory
+  # * User clicks save
+  # * User is redirected to dashboard
 
   scenario 'existing user clicks on Elementary School' do
     user = FactoryGirl.create(:user)
 
     visit root_path
-    click_link('sign in', match: :first)
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'sign in'
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'Sign In'
 
     expect(page).to have_content('Welcome back to throwback!')
-    expect(page).to have_content('sign out')
+    expect(page).to have_content('Sign Out')
 
-    click_link 'elementary school'
-
-    expect(page).to have_content('elementary school')
+    click_button 'Travel'
    
   end
 

@@ -10,7 +10,7 @@
         <% if user_signed_in? %>
         <p><%= link_to "Your Dashboard", dashboard_index_path, :class => "btn btn-lg btn-success" %></p>
         <% else %>
-        <p><%= link_to "Get Started Today", new_user_registration_path, :class => "btn btn-lg btn-success" %></p>
+        <p><%= link_to "Get Started Today", new_user_registration_path, :class => "btn btn-lg btn-success", :id => "signup", :name => "signup", :value => "signup" %></p>
         <% end %>
       </div>
 

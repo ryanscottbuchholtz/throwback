@@ -5,8 +5,9 @@
   <div class="form-inputs">
     <%= f.input :name, label: false, autofocus: true %>
   </div><br>
-  <div class="form-actions">
-    <%= f.button :submit, "update", :class => "btn btn-primary" %>
+  <div class="btn-group">
+    <%= link_to "Cancel", categories_path, :class => "btn btn-primary" %>
+    <%= f.button :submit, "Update", :class => "btn btn-primary" %>
   </div>
 <% end %>
 <br>

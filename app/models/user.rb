@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
+  has_many :memories,
+    inverse_of: :user
+
 end

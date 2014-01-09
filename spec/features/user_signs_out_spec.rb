@@ -14,18 +14,17 @@ feature 'existing user signs out', %Q{
     user = FactoryGirl.create(:user)
 
     visit root_path
-    click_link('sign in', match: :first)
-    fill_in 'user_email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'sign in'
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'Sign In'
 
     expect(page).to have_content('Welcome back to throwback!')
-    expect(page).to have_content('sign out')
+    expect(page).to have_content('Sign Out')
 
-    click_link 'sign out'
+    click_link 'Sign Out'
 
     expect(page).to have_content('Signed out successfully')
-    expect(page).to have_content('sign in')
+    expect(page).to have_content('Forgot your password?')
 
   end
 

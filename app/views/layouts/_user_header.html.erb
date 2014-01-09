@@ -22,8 +22,10 @@
             <li><%= link_to "My Profile", user_path(current_user) %></li>
             <% if current_user.is_admin? %>
             <li><%= link_to 'Admin Tools' %>
+            </ul>
             <% end %>
           <% else %>
+          <ul class="nav pull-right">
             <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => "pull-right", :role => "form"}) do |f| %></li>
               <% devise_error_messages! %>
               <div class="form-group">
@@ -32,7 +34,7 @@
               <div class="form-group">
                 <li><%= f.password_field :password, label: 'password', required: false, placeholder: 'enter password' %><li>
               </div>
-                <li><%= f.button :submit, "sign in", :class => "btn btn-primary" %></li>
+                <li><%= f.button :submit, "Sign In", :class => "btn btn-primary" %></li>
                 <li><%= link_to "Forgot your password?", new_password_path('user') %></li>
               <%end%>
             </form>

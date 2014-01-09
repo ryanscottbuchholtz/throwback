@@ -18,7 +18,7 @@ feature 'non-existing user sends email to site admin', %q{
     ActionMailer::Base.deliveries = []
 
     visit root_path
-    click_link 'contact us'
+    click_link 'Contact Us'
 
   end
 end

@@ -18,24 +18,24 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'specify valid and required information (happy path)' do
     visit root_path
-    click_link('sign up', match: :first)
+    click_button('signup'['class'])
     fill_in 'first name', with: 'Ryan'
     fill_in 'last name', with: 'Buchholtz'
     fill_in 'e-mail address', with: 'ryanscottbuchholtz@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'user_password_confirmation', with: 'password'
 
-    click_button 'sign up'
+    click_button ('Sign Up'['class'])
 
     expect(page).to have_content("Welcome to throwback!")
     expect(page).to have_content("Let's begin building your profile")
-    expect(page).to have_content("sign out")
+    expect(page).to have_content("Sign Out")
   end
 
   scenario 'required information is not supplied' do
     visit root_path
-    click_link('sign up', match: :first)
-    click_button 'sign up'
+    click_button('signup'['class'])
+    click_button ('Sign Up'['class'])
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Sign Out')
@@ -43,14 +43,14 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'password confirmation does not match confirmation' do
     visit root_path
-    click_link('sign up', match: :first)
+    click_button('signup'['class'])
 
-    fill_in 'user_password', with: 'password'
-    fill_in 'user_password_confirmation', with: 'anotherpassword'
-    click_button 'sign up'
+    fill_in 'password', with: 'password'
+    fill_in 'password_confirmation', with: 'anotherpassword'
+    click_button ('Sign Up'['class'])
 
     expect(page).to have_content("Please review the problems below")
-    expect(page).to_not have_content("sign out")
+    expect(page).to_not have_content("Sign Out")
   end
 
 end
