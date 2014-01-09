@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <body>
+      <!-- Jumbotron -->
+  <table class="table table-striped">
+    <thead>
+      <td><h1>Users - <%= link_to 'New User', new_user_registration_path %></h1></td>
+      <tbody>
+        <% @user.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to "Edit User", edit_user_path(user) %></td>
+          <td><%= link_to "Delete User", category, method: :delete, data: {confirm: "Are you sure?" } %>
+          </tr>
+          <% end %>
+          <tbody>
+          </table>
+     
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Ryan Scott Buchholtz
+      </div>
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>
