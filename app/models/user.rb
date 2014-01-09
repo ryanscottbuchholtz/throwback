@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :role
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

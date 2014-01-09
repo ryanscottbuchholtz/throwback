@@ -8,6 +8,7 @@ Throwback::Application.routes.draw do
   post 'contact' => 'contacts#create'
 
   resources :categories
+  resources :questions
 
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get
   #match 'contact' => 'contact#create', :as => 'contact2', :via => :post

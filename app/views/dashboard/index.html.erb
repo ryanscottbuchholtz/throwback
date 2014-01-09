@@ -14,13 +14,24 @@
           <li><p><%= link_to "Career", dashboard_index_path, :class => "btn btn-success" %></p></li>
           <li><p><%= link_to "Travel", dashboard_index_path, :class => "btn btn-success" %></p></li>
           <li><p><%= link_to "World Event", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <% if current_user.is_admin? %>
-          <li><p><%= link_to "Edit Categories", categories_path, :class => "btn btn-success" %></p></li>
-          <% else %> <% end %>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
+        <% if current_user.is_admin?%>
+        <div class="col-lg-4">
+          <h2>Update/Edit Categories</h2>
+          <p><%= link_to "Go!", categories_path, :class => "btn btn-primary", role: "button" %></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Update/Edit Questions</h2>
+          <p><%= link_to "Go!", questions_path, :class => "btn btn-primary", role: "button" %></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Update/Edit Users</h2>
+          <p><%= link_to "Go!", users_path, :class => "btn btn-primary", role: "button" %></p>
+        </div>
+          <% else %>
         <div class="col-lg-4">
           <h2>Power of Story</h2>
           <p>Every one of us has a story.  And each of those stories is worthy of preservation.  Maybe for you, and maybe for others.  Put pen to paper today and begin to capture all the neat things that made you who you are.  Your story matters.  Start Today!</p>
@@ -39,6 +50,7 @@
       </div>
       <br>
       <br>
+      <% end %>
 
       <!-- Site footer -->
       <div class="footer">

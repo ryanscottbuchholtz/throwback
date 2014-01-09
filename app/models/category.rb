@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
   validates_presence_of :name
+  validates_uniqueness_of :name
 
-  has_many :memories,
+  has_many :questions,
     inverse_of: :category
 end
