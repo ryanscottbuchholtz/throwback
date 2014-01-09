@@ -14,6 +14,9 @@
           <li><p><%= link_to "Career", dashboard_index_path, :class => "btn btn-success" %></p></li>
           <li><p><%= link_to "Travel", dashboard_index_path, :class => "btn btn-success" %></p></li>
           <li><p><%= link_to "World Event", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <% if current_user.is_admin? %>
+          <li><p><%= link_to "Edit Categories", categories_path, :class => "btn btn-success" %></p></li>
+          <% else %> <% end %>
       </div>
 
       <!-- Example row of columns -->

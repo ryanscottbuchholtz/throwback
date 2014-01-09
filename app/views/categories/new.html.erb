@@ -1,0 +1,14 @@
+<div class="border-form-div">
+  <h1> New Category <h1>
+
+<%= simple_form_for(@category) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, label: false, autofocus: true, placeholder: 'Category Name' %>
+  </div><br>
+  <div class="form-actions">
+    <%= f.button :submit, "Save", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+<br>
+
+</div>
