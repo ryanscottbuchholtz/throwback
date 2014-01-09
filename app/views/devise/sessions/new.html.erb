@@ -6,9 +6,9 @@
   <div class="form-inputs">
     <%= f.email_field :email, label: 'e-mail', required: false, autofocus: true, placeholder: 'e-mail' %>
     <%= f.password_field :password, label: 'password', required: false, placeholder: 'password' %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div class="col-sm-offset-0 col-sm-0">
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></div>
   </div><br>
-
   <div class="form-actions">
     <%= f.button :submit, "sign in", :class => "btn btn-primary" %>
   </div>

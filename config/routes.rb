@@ -7,6 +7,8 @@ Throwback::Application.routes.draw do
   get 'contact' => 'contacts#new'
   post 'contact' => 'contacts#create'
 
+  resources :categories
+
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get
   #match 'contact' => 'contact#create', :as => 'contact2', :via => :post
   # The priority is based upon order of creation: first created -> highest priority.

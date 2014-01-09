@@ -1,3 +1,48 @@
-This is the dashboard.  From here you should see the stories you have written, along with recommended next stories.  
+<!DOCTYPE html>
+<html lang="en">
 
-There should be a sidebar on the left side where you can play 'Memoir Roulette', where you select a category and you are given a random memory to complete.
+  <body>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Time to throwback!</h1><br>
+        <p class="lead">Write a memory now.  Select a category and a thought provoking question will be presented to you.  Take a moment to think on the question and, when you are ready, start your memoir piece.  When you are done, save it and do it all over again!  Good luck, and happy writing.</P><br>
+        <ul class="nav nav-justified">
+          <li><p><%= link_to "School", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Family", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Love", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Home", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Career", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Travel", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "World Event", dashboard_index_path, :class => "btn btn-success" %></p></li>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Power of Story</h2>
+          <p>Every one of us has a story.  And each of those stories is worthy of preservation.  Maybe for you, and maybe for others.  Put pen to paper today and begin to capture all the neat things that made you who you are.  Your story matters.  Start Today!</p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Wealth of Memory</h2>
+          <p>There is an old saying - 'if you want your kids to remember you, cut them out of the will'.  We think there is an easier(and nicer) way.  Leave your story.  It's worth more than gold.  And it is one of the best gifts you can give anyone.</p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-lg-4">
+          <h2>Mental Exercise</h2>
+          <p>It's been shown, time and time again, that the brain needs to go to the 'gym' just like the rest of our body.  Consider Throwback your mental gym.  The health benefits, not just limited to mental vigor, might surprise you!</p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Ryan Scott Buchholtz
+      </div>
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>
