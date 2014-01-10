@@ -7,13 +7,13 @@
         <h1>Time to throwback!</h1><br>
         <p class="lead">Write a memory now.  Select a category and a thought provoking question will be presented to you.  Take a moment to think on the question and, when you are ready, start your memoir piece.  When you are done, save it and do it all over again!  Good luck, and happy writing.</P><br>
         <ul class="nav nav-justified">
-          <li><p><%= link_to "School", dashboard_index_path, :category_id => "5", :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "Family", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "Love", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "Home", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "Career", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "Travel", dashboard_index_path, :class => "btn btn-success" %></p></li>
-          <li><p><%= link_to "World Event", dashboard_index_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "School", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Family", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Love", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Home", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Career", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "Travel", questions_path, :class => "btn btn-success" %></p></li>
+          <li><p><%= link_to "World Event", questions_path, :class => "btn btn-success" %></p></li>
       </div>
 
       <!-- Example row of columns -->
@@ -51,11 +51,6 @@
       <br>
       <br>
       <% end %>
-
-      <!-- Site footer -->
-      <div class="footer">
-        <p>&copy; Ryan Scott Buchholtz
-      </div>
 
     </div> <!-- /container -->
     

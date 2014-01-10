@@ -9,10 +9,10 @@
       <tbody>
         <% @questions.each do |question| %>
         <tr>
-          <td><%= question.question %></td>
+          <td><%= link_to question.question, question_path(question) %></td>
           <td><%= question.category.name %></th>
-          <td><%= link_to "Edit Question", edit_question_path(question) %></td>
-          <td><%= link_to "Delete Question", question, method: :delete, data: {confirm: "Are you sure?" } %>
+          <td><%= link_to "Edit", edit_question_path(question) %></td>
+          <td><%= link_to "Remove", question, method: :delete, data: {confirm: "Are you sure?" } %>
           </tr>
           <% end %>
           <tbody>

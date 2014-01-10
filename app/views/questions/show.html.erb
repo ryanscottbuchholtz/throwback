@@ -1,5 +1,6 @@
 <div class="jumbotron">
-  <h1>Your Question:</h1>
-  <p><%= @random_question.question %></p>
-  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+  <h1><%= @question.category.name %></h1><br>
+  <p><%= @question.question %></p><br>
+  <p><a class="btn btn-lg btn-success" href="#" role="button">Write Memory</a>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Skip and get another</a></p>
 </div>
