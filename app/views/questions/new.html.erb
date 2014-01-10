@@ -1,13 +1,22 @@
-<div class="border-form-div">
-  <h1> New Question <h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= simple_form_for(@question) do |f| %>
-    <%= f.input :question, label: false, autofocus: true, placeholder: 'Memory Question', :class => "form-control", :rows => "3" %>
-    <%= f.association :category, label: false, collection: Category.all.order('name'), label_method: :name, value_method: :id, prompt: 'Category' %>
-  <br>
-  <div class="form-actions">
-    <%= f.button :submit, "Save", :class => "btn btn-primary" %>
-  </div>
-<% end %>
-<br>
-</div>
+  <body>
+      <!-- Jumbotron -->
+  <table class="table table-striped">
+    <thead>
+      <td><h1>Questions - <%= link_to 'New Question', new_question_path %></h1></td>
+      <tbody>
+        <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to question.question, question_path(question) %></td>
+          <td><%= question.category.name %></th>
+          <td><%= link_to "Edit", edit_question_path(question) %></td>
+          <td><%= link_to "Remove", question, method: :delete, data: {confirm: "Are you sure?" } %>
+          </tr>
+          <% end %>
+          <tbody>
+          </table>
+    
+  </body>
+</html>

@@ -21,6 +21,11 @@ Throwback::Application.routes.draw do
 
   resources :samples, only: [:index]
 
+  namespace :admin do
+    resources :questions
+    
+  end
+
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get
   #match 'contact' => 'contact#create', :as => 'contact2', :via => :post
   # The priority is based upon order of creation: first created -> highest priority.

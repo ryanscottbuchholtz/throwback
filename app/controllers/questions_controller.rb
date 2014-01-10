@@ -2,7 +2,8 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user, :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all
+    @category = Category.find(params[:category_id])
+    @question = Question.where(category_id: @category.id).sample
   end
 
   def show

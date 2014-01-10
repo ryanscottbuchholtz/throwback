@@ -1,11 +1,7 @@
 class DashboardController < ApplicationController
  
   def index
+    @categories = Category.all
   end
-
-  def random_question(category_id)
-    Question.where(params[:category_id].shuffle[0])
-  end
-
 
 end
