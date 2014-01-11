@@ -1,19 +1,17 @@
 Throwback::Application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users, only: [:show, :edit]
   resources :dashboard, only: [:index]
 
   resources :contact, only: [:new, :create]
   get 'contact' => 'contacts#new'
   post 'contact' => 'contacts#create'
 
-  resources :categories do
+  resources :categories, only: [:show] do 
     resources :questions, only: [:index]
   end
 
-  resources :questions
-
-  resources :questions do
+  resources :questions, only: [:index] do
     resources :memory
   end
 
@@ -23,6 +21,8 @@ Throwback::Application.routes.draw do
 
   namespace :admin do
     resources :questions
+    resources :categories
+    resources :users
     
   end
 
