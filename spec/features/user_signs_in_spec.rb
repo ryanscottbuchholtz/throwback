@@ -21,7 +21,7 @@ feature 'existing user signs in', %Q{
     fill_in 'user[password]', with: user.password
     click_button 'Sign In'
 
-    expect(page).to have_content('Welcome back to throwback!')
+    expect(page).to have_content('Dashboard')
     expect(page).to have_content('Sign Out')
   end
 

@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h1><%= @question.category.name %></h1><br>
+  <p><%= @question.question %></p><br>
+</div>
+
+<%= simple_form_for(@memory, :url => question_memories_path) do |f| %>
+  <%= f.input :question_id, :as => :hidden, value: @question.id %>
+  <%= f.input :user_id, :as => :hidden, value: current_user.id %>
+  <%= f.input :body, label: false, required: true, placeholder: "Capture Memory Here" %>
+  <%= f.button :submit, "Save" %>
+  <% end %>

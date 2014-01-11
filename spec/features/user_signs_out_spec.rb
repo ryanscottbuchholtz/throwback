@@ -23,7 +23,7 @@ feature 'existing user signs out', %Q{
 
     click_link 'Sign Out'
 
-    expect(page).to have_content('Signed out successfully')
+    expect(page).to have_content('Get Started Today')
     expect(page).to have_content('Forgot your password?')
 
   end

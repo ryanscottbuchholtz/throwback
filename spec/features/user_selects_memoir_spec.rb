@@ -26,8 +26,8 @@ feature 'authenticated user selects a memory to write', %Q{
 
     expect(page).to have_content('Welcome back to throwback!')
     expect(page).to have_content('Sign Out')
-
-    click_button 'Travel'
+    save_and_open_page
+    click_link 'Travel'
    
   end
 

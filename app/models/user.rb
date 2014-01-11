@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
   has_many :memories,
     inverse_of: :user
 
+  has_many :answered_questions,
+    inverse_of: :user
+
 end

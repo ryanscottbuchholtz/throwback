@@ -6,5 +6,8 @@ class Question < ActiveRecord::Base
 
   has_many :memories,
     inverse_of: :question
+
+  has_many :answered_questions,
+    inverse_of: :question
     
 end

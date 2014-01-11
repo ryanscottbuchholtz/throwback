@@ -12,7 +12,7 @@ Throwback::Application.routes.draw do
   end
 
   resources :questions, only: [:index] do
-    resources :memory
+    resources :memories, only: [:new, :create]
   end
 
   resources :testimonials, only: [:index]

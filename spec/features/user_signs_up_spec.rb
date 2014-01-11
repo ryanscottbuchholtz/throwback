@@ -18,10 +18,11 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'specify valid and required information (happy path)' do
     visit root_path
-    click_button('signup'['class'])
-    fill_in 'first name', with: 'Ryan'
-    fill_in 'last name', with: 'Buchholtz'
-    fill_in 'e-mail address', with: 'ryanscottbuchholtz@gmail.com'
+    click_link('Get Started Today')
+    save_and_open_page
+    fill_in 'user[first_name]', with: 'Ryan'
+    fill_in 'user_last_name', with: 'Buchholtz'
+    fill_in 'user_email', with: 'ryanscottbuchholtz@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'user_password_confirmation', with: 'password'
 
@@ -34,7 +35,7 @@ feature 'A new user signs up with Throwback', %Q{
 
   scenario 'required information is not supplied' do
     visit root_path
-    click_button('signup'['class'])
+    click_link('Get Started Today')
     click_button ('Sign Up'['class'])
 
     expect(page).to have_content("can't be blank")
@@ -45,8 +46,8 @@ feature 'A new user signs up with Throwback', %Q{
     visit root_path
     click_button('signup'['class'])
 
-    fill_in 'password', with: 'password'
-    fill_in 'password_confirmation', with: 'anotherpassword'
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'anotherpassword'
     click_button ('Sign Up'['class'])
 
     expect(page).to have_content("Please review the problems below")
