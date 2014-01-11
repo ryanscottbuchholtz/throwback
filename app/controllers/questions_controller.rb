@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user, :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user 
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def index
     @category = Category.find(params[:category_id])

@@ -1,0 +1,10 @@
+<div class="border-form-div">
+  <h1> New Question <h1>
+    <%= simple_form_for(@question) do |f| %>
+      <%= f.input :question, label: false, autofocus: true, placeholder: 'Memory Question', :class => "form-control", :rows => "3" %>
+      <%= f.association :category, label: false, collection: Category.all.order('name'), label_method: :name, value_method: :id, prompt: 'Category' %><br>
+      <div class="form-actions">
+      <%= f.button :submit, "Save", :class => "btn btn-primary" %>
+      </div></br>
+      <% end %>
+</div>

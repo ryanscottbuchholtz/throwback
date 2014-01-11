@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <thead>
+    <td><h1>Questions - <%= link_to 'New Question', new_question_path %></h1></td>
+      <tbody>
+        <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to question.question, question_path(question) %></td>
+          <td><%= question.category.name %></th>
+          <td><%= link_to "Edit", edit_question_path(question) %></td>
+          <td><%= link_to "Remove", question, method: :delete, data: {confirm: "Are you sure?" } %>
+        </tr>
+        <% end %>
+      <tbody>
+</table>
