@@ -1,4 +1,5 @@
 class Memory < ActiveRecord::Base
+
   validates_presence_of :user, :question
 
   belongs_to :question,
@@ -6,5 +7,7 @@ class Memory < ActiveRecord::Base
 
   belongs_to :user,
     inverse_of: :memories
-    
+
+  validates :question, uniqueness: { :scope => :user }
+   
 end

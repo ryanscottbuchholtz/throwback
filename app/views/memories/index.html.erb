@@ -1,0 +1,10 @@
+<%= @memories.each do |memory| %>
+<div class="jumbotron">
+  <h2><%= memory.question.question %></h2>
+  <p class="lead"><%= memory.body %></p>
+  <p class="lead"><%= memory.question.category.name %></p>
+  <p><%= link_to "View Details", memory_path(memory), :class => "btn btn-sm btn-success" %> 
+     <%= link_to "Edit Memory", edit_memory_path(memory), :class => "btn btn-sm btn-primary" %>
+     <%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, :class => "btn btn-sm btn-danger" %></p>
+</div>
+ <% end %>

@@ -14,15 +14,18 @@
         <li><%= link_to "Contact Us", new_contact_path %></li>
         
         <% if user_signed_in? %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <li><%= link_to "My Profile", user_path(current_user) %></li>
+        <li><%= link_to "Timeline", timeline_index_path(current_user) %></li>
+       <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+        <p>Signed in as <%=current_user.email%></p>
         <% if current_user.is_admin? %>
-        <li><%= link_to 'Admin Tools'  %>
+        <li><%= link_to 'Admin Tools', admin_index_path  %></li>
         <% end %>
 
         <% else %>
 
-          <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => "pull-right", :role => "form"}) do |f| %></li>
+          
+          <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => "pull-right"}) do |f| %>
           <% devise_error_messages! %>
 
           <div class="form-group">

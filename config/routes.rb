@@ -2,6 +2,9 @@ Throwback::Application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit]
   resources :dashboard, only: [:index]
+  resources :admin, only: [:index]
+  resources :timeline, only: [:index]
+  resources :memories, only: [:index, :show, :edit, :delete]
 
   resources :contact, only: [:new, :create]
   get 'contact' => 'contacts#new'
@@ -23,7 +26,7 @@ Throwback::Application.routes.draw do
     resources :questions
     resources :categories
     resources :users
-    
+   
   end
 
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get

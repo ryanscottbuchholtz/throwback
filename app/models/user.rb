@@ -11,9 +11,10 @@ class User < ActiveRecord::Base
   end
 
   has_many :memories,
-    inverse_of: :user
+    inverse_of: :user,
+    dependent: :destroy
 
-  has_many :answered_questions,
-    inverse_of: :user
-
+  has_many :questions,
+    through: :memories
+  
 end
