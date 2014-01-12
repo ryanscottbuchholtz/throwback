@@ -1,5 +1,6 @@
 class MemoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_memory, only: [:destroy, :show, :update, :edit]
 
   def index
     @memories = current_user.memories
@@ -11,6 +12,19 @@ class MemoriesController < ApplicationController
     @memory = @question.memories.build
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @memory.update(memory_params)
+      redirect_to memories_path
+    else
+      render action: 'edit'
+    end
+  end
 
   def create
     @question = Question.find(params[:question_id])
@@ -23,10 +37,19 @@ class MemoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @memory.destroy
+    redirect_to memories_path
+  end
+
 private
   
   def memory_params
-    params.require(:memory).permit(:body, :user_id, :question_id)
+    params.require(:memory).permit(:body, :user_id, :question_id, :year, :season)
+  end
+
+  def set_memory
+    @memory = Memory.find(params[:id])
   end
 
 end

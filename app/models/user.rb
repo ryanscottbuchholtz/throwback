@@ -16,5 +16,6 @@ class User < ActiveRecord::Base
 
   has_many :questions,
     through: :memories
+
   
 end

@@ -4,7 +4,7 @@ Throwback::Application.routes.draw do
   resources :dashboard, only: [:index]
   resources :admin, only: [:index]
   resources :timeline, only: [:index]
-  resources :memories, only: [:index, :show, :edit, :delete]
+  resources :memories, only: [:index, :edit, :destroy, :update]
 
   resources :contact, only: [:new, :create]
   get 'contact' => 'contacts#new'

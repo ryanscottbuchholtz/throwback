@@ -13,13 +13,12 @@
             </div>
             <%= f.input_field :email, label: false, required: true, placeholder: 'Your E-mail', :class =>"form-control input-lg" %>
             <%= f.input_field :password, label: false, required: true, placeholder: 'Password', :class =>"form-control input-lg" %>
-            <%= f.input_field :password_confirmation, label: false, required: true, placeholder: 'Confirm Password', :class =>"form-control input-lg" %> 
-            <br>     
+            <%= f.input_field :password_confirmation, label: false, required: true, placeholder: 'Confirm Password', :class =>"form-control input-lg" %>      
             
             <div class="row">
               <label>Birth Date</label>
             </div>                 
-            <br>
+            
             <div class="row">
               
               <div class="col-xs-4 col-md-4">
@@ -33,8 +32,9 @@
               <div class="col-xs-4 col-md-4">
                 <%= f.input_field :birth_year, collection: 1935..2014, prompt: 'Year', :class =>"form-control input-lg" %> 
               </div>
+            
             </div>
-
+            
             <br />
             <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
             <div class="row">

@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 20140111232027) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "birth_month"
     t.integer  "birth_day"
     t.integer  "birth_year"
     t.string   "gender"
     t.string   "role",                   default: "member", null: false
+    t.string   "birth_month"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

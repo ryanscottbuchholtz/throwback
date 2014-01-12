@@ -1,25 +1,30 @@
-<div class="border-form-div">
-<h2>Contact Us!</h2><br>
-
-<%= simple_form_for @message, url: contact_path do |f| %>
-
-  <%= f.error_notification %>
-
-    <%= f.input :first_name, label: false, required: true, placeholder: 'First Name' %>
-    <%= f.input :last_name, label: false, required: true, placeholder: 'Last Name' %>
-    <%= f.input :email, label: false, required: true, placeholder: 'E-mail Address' %>
-    <%= f.input :subject, label: false, required: true, placeholder: 'Subject' %>
-    <%= f.input :body, label: false, required: true, placeholder: 'Message', cols: '28',rows: '5'%><br>
-
-<br>
-    <%= f.button :submit, "Submit", :class => "btn btn-primary" %>
-<br>
-  <% if user_signed_in? %>
-  <%= link_to 'Back', :back %>
-  <% else %>
-  <%= link_to 'Return Home', root_path %>
-  <% end %>
-
-<% end %>  
-
-</div>  
+<div class="container" id="wrap">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <legend>Contact Us!</legend>
+             <%= simple_form_for @message, url: contact_path do |f| %>
+            <div class="row">
+              <div class="col-xs-6 col-md-6">
+                <%= f.input_field :first_name, label: false, required: true, placeholder: 'First Name', :class =>"form-control input-lg"%>
+              </div>
+              <div class="col-xs-6 col-md-6">
+                 <%= f.input_field :last_name, label: false, required: true, placeholder: 'Last Name', :class =>"form-control input-lg" %>
+              </div>               
+            </div>
+            <%= f.input_field :email, label: false, required: true, placeholder: 'Your E-mail', :class =>"form-control input-lg" %>
+            <%= f.input_field :subject, label: false, required: true, placeholder: 'Subject', :class =>"form-control input-lg" %>
+            <%= f.input_field :body, label: false, required: true, placeholder: 'Message, Rants, Raves, etc.', :class =>"form-control input-lg", :rows =>"10" %>             
+            
+            <br />
+            <span class="help-block"><i>We will get back to you as soon as possible.  Thank you for reaching out to us!</i></span>
+            <div class="row">
+              <div class="col-md-6">
+              <%= f.button :submit, 'Send', :class =>"btn btn-lg btn-primary btn-block signup-btn" %>
+              </div>
+            </div>
+            </form>
+            <% end %>          
+          </div>
+        </div>            
+    </div>
+</div>

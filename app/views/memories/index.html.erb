@@ -1,10 +1,15 @@
+  <ul class="nav nav-justified">
+    <li><%= link_to "Sort by Date (oldest to newest)", class: "btn btn-sm btn-primary" %></li>
+    <li><%= link_to "Sort by Date (newest to oldest)", class: "btn btn-sm btn-primary" %></li>
+    <li><%= link_to "Sort by Category", class: "btn btn-sm btn-primary" %></li>
+  </ul>
+
 <%= @memories.each do |memory| %>
 <div class="jumbotron">
   <h2><%= memory.question.question %></h2>
   <p class="lead"><%= memory.body %></p>
-  <p class="lead"><%= memory.question.category.name %></p>
-  <p><%= link_to "View Details", memory_path(memory), :class => "btn btn-sm btn-success" %> 
-     <%= link_to "Edit Memory", edit_memory_path(memory), :class => "btn btn-sm btn-primary" %>
-     <%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, :class => "btn btn-sm btn-danger" %></p>
+  <p class="lead">Category:  <%= memory.question.category.name %></p>     Year: <%= memory.year %>     Season: <%= memory.season %></p>
+  <p><%= link_to "Edit Memory", edit_memory_path(memory), class: "btn btn-sm btn-primary" %>
+     <%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %></p>
 </div>
  <% end %>

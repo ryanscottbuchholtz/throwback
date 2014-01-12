@@ -1,12 +1,5 @@
-<div class="jumbotron">
-  <h1><%= @question.category.name %></h1><br>
-  <p><%= @question.question %></p><br>
-</div>
-
 <div class="row">
-<%= simple_form_for(@memory, :url => question_memories_path, :class =>'form') do |f| %>
-  <%= f.input :question_id, :as => :hidden, value: @question.id %>
-  <%= f.input :user_id, :as => :hidden, value: current_user.id %>
+<%= simple_form_for @memory do |f| %>
   <%= f.input_field :body, label: false, required: true, placeholder: "Capture Memory Here", :class =>"form-control input-lg", :rows =>"10" %>
 </div>
 <br>
