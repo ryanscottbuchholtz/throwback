@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       :merge_vars => {
         :FNAME => self.first_name,
         :LNAME => self.last_name,
-        :COMPANY => self.company
+        :BIRTHDAY => self.birth_year
       },
       :double_optin => false,
       :send_welcome => false
