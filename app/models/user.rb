@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # after_save :mailchimp_status
+  after_save :mailchimp_status
   validates_presence_of :first_name, :last_name, :role
 
   has_many :memories,
@@ -18,21 +18,21 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  # def mailchimp_status
-  #   @mailchimp_list_id = ENV[mail_chimp_list_id]
-  #   @gb = Gibbon::API.new
-  #     @gb.lists.subscribe({
-  #     :id => @mailchimp_list_id,
-  #     :email => {:email => self.email},
-  #     :merge_vars => {
-  #       :FNAME => self.first_name,
-  #       :LNAME => self.last_name,
-  #       :BIRTHDAY => self.birth_year
-  #     },
-  #     :double_optin => false,
-  #     :send_welcome => false
-  #   })
-  # end
+  def mailchimp_status
+    @mailchimp_list_id = ENV[mail_chimp_list_id]
+    @gb = Gibbon::API.new
+      @gb.lists.subscribe({
+      :id => @mailchimp_list_id,
+      :email => {:email => self.email},
+      :merge_vars => {
+        :FNAME => self.first_name,
+        :LNAME => self.last_name,
+        :BIRTHDAY => self.birth_year
+      },
+      :double_optin => false,
+      :send_welcome => false
+    })
+  end
 
   
 end
