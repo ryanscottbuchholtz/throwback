@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def mailchimp_status
-    @mailchimp_list_id = ENV[mail_chimp_list_id]
+    @mailchimp_list_id = ENV["mail_chimp_list_id"]
     @gb = Gibbon::API.new
       @gb.lists.subscribe({
       :id => @mailchimp_list_id,
