@@ -1,24 +1,28 @@
-  <ul class="nav nav-justified">
-    <li><%= link_to "Sort by Date (oldest to newest)", class: "btn btn-sm btn-primary" %></li>
-    <li><%= link_to "Sort by Date (newest to oldest)", class: "btn btn-sm btn-primary" %></li>
-    <li><%= link_to "Sort by Category", class: "btn btn-sm btn-primary" %></li>
+<div class="jumbotron">
+  <ul class="nav pull-right">
+    <li><p><%= link_to "Sort by Date (newest to oldest)", memories_path%></p></li>
+    <li><p><%= link_to "Sort by Category", memories_path %></p></li>
   </ul>
+    <h1>Timeline</h1>
+</div>
 
 <%= @memories.each do |memory| %>
-<div class="jumbotron">
-  <h2><%= memory.question.question %></h2>
-  <p class="lead"><%= memory.body %></p>
-  <p class="lead">Category:  <%= memory.question.category.name %></p>     Year: <%= memory.year %>     Season: <%= memory.season %></p>
-  <p><%= link_to "Edit Memory", edit_memory_path(memory), class: "btn btn-sm btn-primary" %>
-     <%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %></p>
-
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title"><%= memory.question.question %></h1>
+  </div>
+  <div class="panel-body">
+    <p class="lead"><%= memory.body %></p>
+      <ul class="nav nav-justified">
+        <p class="text-muted">Tags</p>
+          <li><%= link_to memory.question.category.name, memories_path%></li>
+          <li><%= link_to memory.year, memories_path%></li>
+          <li><%= link_to memory.season, memories_path %></li>
+          <li><p><%= link_to "Edit Memory", edit_memory_path(memory), class: "btn btn-sm btn-primary pull-right" %></p></li>
+          <li><p><%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-sm btn-danger pull-right" %></p></li>
+      </ul>
+  </div>
 </div>
- <% end %>
+  <% end %>
 
 
- <div class="list-group">
-  <%= @memories.each do |memory| %>
-  <h4 class="list-group-item-heading"><%= memory.question.question %></h4>
-  <p class="list-group-item-text"><%= memory.body %></p>
-</div>
-<% end %>

@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  
   after_save :mailchimp_status
+  
   validates_presence_of :first_name, :last_name, :role
 
   has_many :memories,
@@ -9,13 +15,12 @@ class User < ActiveRecord::Base
   has_many :questions,
     through: :memories
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   def is_admin?
     role == 'admin'
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   def mailchimp_status

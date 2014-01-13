@@ -11,14 +11,14 @@
 </div>
 <br>
  <br>
-    <span class="help-block"><i>Year and Season are not required, but will help to put your memories in the correct order for display in your timeline.  Consider estimating.  You can always edit later.</i></span>
+    <span class="help-block"><i>Year and Season will help to put your memories in the correct order for display in your timeline.  If you are uncertain, use a best guess.  You can always edit later.</i></span>
     <br>
   <div class="row">
     <div class="col-xs-4 col-md-4">
-  <%= f.input_field :year, collection: 1935..2014, prompt: 'Year', :class =>"form-control input-lg" %>
+  <%= f.input_field :year, collection: 1935..2014, prompt: 'Year', required: true, :class =>"form-control input-lg" %>
     </div>
     <div class="col-xs-4 col-md-4">
-  <%= f.input_field :season, collection: ['Late Winter', 'Spring', 'Summer', 'Fall', 'Early Winter'], prompt: 'Season', :class =>"form-control input-lg" %>
+  <%= f.input_field :season, collection: ['Late Winter', 'Spring', 'Summer', 'Fall', 'Early Winter'], prompt: 'Season', required: true, :class =>"form-control input-lg" %>
     </div>
 
   <%= f.button :submit, "Save", :class =>"btn btn-lg btn-success pull-right" %>

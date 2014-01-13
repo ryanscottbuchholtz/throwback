@@ -3,7 +3,6 @@ Throwback::Application.routes.draw do
   resources :users, only: [:show, :edit]
   resources :dashboard, only: [:index]
   resources :admin, only: [:index]
-  resources :timeline, only: [:index]
   resources :memories, only: [:index, :edit, :destroy, :update]
 
   resources :contact, only: [:new, :create]

@@ -10,28 +10,29 @@
         
         <li><%= link_to "Blog", 'http://ryanscottbuchholtz.blogspot.com' %></li>
         <li><%= link_to "Testimonials", testimonials_path %></li>
-        <li><%= link_to "Sample Exercise", samples_path %></li>
+        <li><%= link_to "Example", samples_path %></li>
         <li><%= link_to "Contact Us", new_contact_path %></li>
               
         <% if user_signed_in? %>
-        <li><%= link_to "Timeline", timeline_index_path(current_user) %></li>
-        <li>Signed in as<%= link_to current_user.first_name, user_path(current_user) %></li>
+        <li><%= link_to "Timeline", memories_path(current_user) %></li>
+        <li><%= link_to current_user.full_name, user_path(current_user) %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% if current_user.is_admin? %>
         <li><%= link_to 'Admin Tools', admin_index_path  %></li>
         <% end %>
+      </ul>
 
         <% else %>
 
           
-          <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => "pull-right"}) do |f| %>
+          <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => " navbar-form pull-right"}) do |f| %>
           <% devise_error_messages! %>
 
-          <div class="form-group">
+          <div class="navbar-form">
           <li><%= f.email_field :email, label: 'e-mail', required: false, autofocus: true, placeholder: 'enter e-mail' %></li>
           </div>
 
-          <div class="form-group">
+          <div class="navbar-form">
           <li><%= f.password_field :password, label: 'password', required: false, placeholder: 'enter password' %><li>
           </div>
 

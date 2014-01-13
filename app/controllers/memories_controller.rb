@@ -4,6 +4,8 @@ class MemoriesController < ApplicationController
 
   def index
     @memories = current_user.memories
+    # sorted_year = @memories.sort_by &:year
+    # sorted_category = @memories.sort_by &:category
   end
 
   def new
