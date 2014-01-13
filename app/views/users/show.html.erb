@@ -2,6 +2,8 @@
   <ul>
     <li><b>Name:  </b><%= @user.first_name+' '+@user.last_name %></li>
     <li><b>E-Mail:  </b><%= @user.email %></li>
+    <li><b>Birthday: </b><%= @user.birth_year%></li>
+    <li><b>Number of Memories: </b><%= @user.memories.count %></li>
   </ul>
 
 <%= link_to 'edit your profile', edit_user_registration_path(current_user) %>

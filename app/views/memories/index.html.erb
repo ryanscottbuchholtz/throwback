@@ -11,5 +11,14 @@
   <p class="lead">Category:  <%= memory.question.category.name %></p>     Year: <%= memory.year %>     Season: <%= memory.season %></p>
   <p><%= link_to "Edit Memory", edit_memory_path(memory), class: "btn btn-sm btn-primary" %>
      <%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %></p>
+
 </div>
  <% end %>
+
+
+ <div class="list-group">
+  <%= @memories.each do |memory| %>
+  <h4 class="list-group-item-heading"><%= memory.question.question %></h4>
+  <p class="list-group-item-text"><%= memory.body %></p>
+</div>
+<% end %>

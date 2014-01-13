@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_save :mailchimp_status
   validates_presence_of :first_name, :last_name, :role
 
   # Include default devise modules. Others available are:
@@ -16,6 +17,22 @@ class User < ActiveRecord::Base
 
   has_many :questions,
     through: :memories
+
+  def mailchimp_status
+    @mailchimp_list_id = ENV[mail_chimp_list_id]
+    @gb = Gibbon::API.new
+      @gb.lists.subscribe({
+      :id => @mailchimp_list_id,
+      :email => {:email => self.email},
+      :merge_vars => {
+        :FNAME => self.first_name,
+        :LNAME => self.last_name,
+        :COMPANY => self.company
+      },
+      :double_optin => false,
+      :send_welcome => false
+    })
+  end
 
   
 end
