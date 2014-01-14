@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
         :BIRTHDAY => self.birth_year
       },
       :double_optin => false,
-      :send_welcome => false
+      :send_welcome => true
     })
   end
 
