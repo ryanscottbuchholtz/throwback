@@ -5,7 +5,7 @@
     <h1>Timeline</h1>
 </div>
 
-<%= @memories.each do |memory| %>
+<% @memories.each do |memory| %>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h1 class="panel-title"><%= memory.question.question %></h1>
@@ -23,5 +23,7 @@
   </div>
 </div>
   <% end %>
+
+  <%= will_paginate @memories, renderer: BootstrapPagination::Rails %>
 
 

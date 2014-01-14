@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
 gem 'has_scope'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
