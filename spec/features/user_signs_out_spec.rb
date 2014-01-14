@@ -18,13 +18,13 @@ feature 'existing user signs out', %Q{
     fill_in 'user[password]', with: user.password
     click_button 'Sign In'
 
-    expect(page).to have_content('Welcome back to throwback!')
+    expect(page).to have_content('Time to throwback')
     expect(page).to have_content('Sign Out')
 
     click_link 'Sign Out'
 
     expect(page).to have_content('Get Started Today')
-    expect(page).to have_content('Forgot your password?')
+    expect(page).to have_content('Home')
 
   end
 

@@ -77,6 +77,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    has_scope (0.5.1)
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
@@ -215,6 +216,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   gibbon!
+  has_scope
   jbuilder (~> 1.2)
   jquery-rails
   launchy

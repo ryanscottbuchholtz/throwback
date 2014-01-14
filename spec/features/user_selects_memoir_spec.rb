@@ -24,9 +24,10 @@ feature 'authenticated user selects a memory to write', %Q{
     fill_in 'user[password]', with: user.password
     click_button 'Sign In'
 
+    save_and_open_page
     expect(page).to have_content('Write a memory now')
     expect(page).to have_content('Sign Out')
-    click_link 'Travel'
+    click_button 'value=Travel'
    
   end
 

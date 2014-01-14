@@ -22,13 +22,15 @@ feature 'A new user signs up with Throwback', %Q{
     fill_in 'user[first_name]', with: 'Ryan'
     fill_in 'user_last_name', with: 'Buchholtz'
     fill_in 'Your E-mail', with: 'ryanscottbuchholtz@gmail.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'user_password_confirmation', with: 'password'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
+    select 'September', from: "user[birth_month]"
+    select 25, from: "user[birth_day]"
+    select 1976, from: "user[birth_year]"
 
     click_button ('Create my Account')
 
-    expect(page).to have_content("Welcome to throwback!")
-    expect(page).to have_content("Let's begin building your profile")
+    expect(page).to have_content("Time to throwback!")
     expect(page).to have_content("Sign Out")
   end
 
@@ -37,7 +39,7 @@ feature 'A new user signs up with Throwback', %Q{
     click_link('Get Started Today')
     click_button ('Create my Account')
 
-    expect(page).to have_content("can't be blank")
+    expect(page).to have_content("Please review the problems below")
     expect(page).to_not have_content('Sign Out')
   end 
 
@@ -45,8 +47,8 @@ feature 'A new user signs up with Throwback', %Q{
     visit root_path
     click_button('signup'['class'])
 
-    fill_in 'user_password', with: 'password'
-    fill_in 'user_password_confirmation', with: 'anotherpassword'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'anotherpassword'
     click_button ('Create my Account')
 
     expect(page).to have_content("Please review the problems below")

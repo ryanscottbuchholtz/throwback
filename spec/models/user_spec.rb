@@ -13,11 +13,14 @@ describe User do
     it { should have_valid(:email).when('ryan@buchholtz.com') }
     it { should_not have_valid(:email).when(*blank, 'ryan@buchholtz', 'ryan.com', 'ryan', 'ryan@com') }
 
-    it { should have_valid(:birth_month).when(*blank) }
+    it { should have_valid(:birth_month).when('September') }
+    it { should_not have_valid(:birth_month).when(*blank) }
 
-    it { should have_valid(:birth_day).when(*blank) }
+    it { should have_valid(:birth_day).when(25) }
+    it { should_not have_valid(:birth_day).when(*blank)}
 
-    it { should have_valid(:birth_year).when(*blank) }
+    it { should have_valid(:birth_year).when(1976) }
+    it { should_not have_valid(:birth_year).when(*blank)}
 
     it { should have_valid(:gender).when(*blank) }
 

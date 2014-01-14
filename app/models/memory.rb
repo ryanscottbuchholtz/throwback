@@ -1,5 +1,8 @@
 class Memory < ActiveRecord::Base
   default_scope order: 'memories.year DESC'
+  scope :year, lambda{|year| where('year = ?', year)}
+  scope :category, lambda{|category| where('category = ?', category)}
+  scope :season, lambda{|season| where('season = ?', season)}
 
   validates_presence_of :user, :question, :year, :season
 

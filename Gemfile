@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'gibbon', git: 'git://github.com/amro/gibbon.git'
+gem 'has_scope'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
