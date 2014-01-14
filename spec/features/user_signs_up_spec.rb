@@ -19,14 +19,13 @@ feature 'A new user signs up with Throwback', %Q{
   scenario 'specify valid and required information (happy path)' do
     visit root_path
     click_link('Get Started Today')
-    save_and_open_page
     fill_in 'user[first_name]', with: 'Ryan'
     fill_in 'user_last_name', with: 'Buchholtz'
-    fill_in 'user_email', with: 'ryanscottbuchholtz@gmail.com'
+    fill_in 'Your E-mail', with: 'ryanscottbuchholtz@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'user_password_confirmation', with: 'password'
 
-    click_button ('Sign Up'['class'])
+    click_button ('Create my Account')
 
     expect(page).to have_content("Welcome to throwback!")
     expect(page).to have_content("Let's begin building your profile")
@@ -36,7 +35,7 @@ feature 'A new user signs up with Throwback', %Q{
   scenario 'required information is not supplied' do
     visit root_path
     click_link('Get Started Today')
-    click_button ('Sign Up'['class'])
+    click_button ('Create my Account')
 
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Sign Out')
@@ -48,7 +47,7 @@ feature 'A new user signs up with Throwback', %Q{
 
     fill_in 'user_password', with: 'password'
     fill_in 'user_password_confirmation', with: 'anotherpassword'
-    click_button ('Sign Up'['class'])
+    click_button ('Create my Account')
 
     expect(page).to have_content("Please review the problems below")
     expect(page).to_not have_content("Sign Out")

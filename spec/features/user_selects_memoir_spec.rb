@@ -24,9 +24,8 @@ feature 'authenticated user selects a memory to write', %Q{
     fill_in 'user[password]', with: user.password
     click_button 'Sign In'
 
-    expect(page).to have_content('Welcome back to throwback!')
+    expect(page).to have_content('Write a memory now')
     expect(page).to have_content('Sign Out')
-    save_and_open_page
     click_link 'Travel'
    
   end

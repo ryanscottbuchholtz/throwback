@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   after_save :mailchimp_status
   
-  validates_presence_of :first_name, :last_name, :role
+  validates_presence_of :first_name, :last_name, :role, :birth_month, :birth_year, :birth_day
 
   has_many :memories,
     inverse_of: :user,

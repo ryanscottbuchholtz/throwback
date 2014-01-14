@@ -1,5 +1,5 @@
 class Memory < ActiveRecord::Base
-  default_scope order: 'memories.year'
+  default_scope order: 'memories.year DESC'
 
   validates_presence_of :user, :question, :year, :season
 
@@ -10,5 +10,5 @@ class Memory < ActiveRecord::Base
     inverse_of: :memories
 
   validates :question, uniqueness: { :scope => :user }
-   
+  
 end
