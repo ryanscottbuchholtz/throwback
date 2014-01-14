@@ -1,49 +1,46 @@
 <div class="container">
   <div class="masthead">
     <h3 class="text-muted"><%= link_to "Throwback", root_path%></h3>
+      <div class="form-inline pull-right">
+        <% unless user_signed_in? %>
+            <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name)) do |f| %>
+            <% devise_error_messages! %>
+
+              <div class="form-group">
+                <%= f.email_field :email, label: 'e-mail', required: false, autofocus: true, placeholder: 'enter e-mail', class: "form-control" %>
+              </div>
+              
+              <div class="form-group">      
+                <%= f.password_field :password, label: 'password', required: false, placeholder: 'enter password', class: "form-control" %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.button :submit, "Sign In", class: "form-control btn btn-primary pull-right" %>
+              </div> 
+
+          </div>
+                 
+          <% end %>
+          <% end %>
       <ul class="nav nav-justified">
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
         <li><%= link_to "Dashboard", dashboard_index_path %></li>
-        <% else %>
+          <% else %>
         <li><%= link_to "Home", root_path %></li>
-        <% end %>
-        
+          <% end %>
         <li><%= link_to "Blog", 'http://ryanscottbuchholtz.blogspot.com' %></li>
         <li><%= link_to "Testimonials", testimonials_path %></li>
         <li><%= link_to "Example", samples_path %></li>
         <li><%= link_to "Contact Us", new_contact_path %></li>
-              
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
         <li><%= link_to "Timeline", memories_path(current_user) %></li>
         <li><%= link_to current_user.full_name, user_path(current_user) %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-        <% if current_user.is_admin? %>
-        <li><%= link_to 'Admin Tools', admin_index_path  %></li>
-        <% end %>
-      </ul>
+          <% else %>
+        </ul>
 
-        <% else %>
-
-          
-          <%= simple_form_for(resource, as: resource_name, :url => session_path(resource_name), :html => { :class => " navbar-form pull-right"}) do |f| %>
-          <% devise_error_messages! %>
-
-          <div class="navbar-form">
-          <li><%= f.email_field :email, label: 'e-mail', required: false, autofocus: true, placeholder: 'enter e-mail' %></li>
-          </div>
-
-          <div class="navbar-form">
-          <li><%= f.password_field :password, label: 'password', required: false, placeholder: 'enter password' %><li>
-          </div>
-
-          <li><%= f.button :submit, "Sign In", :class => "btn btn-primary" %></li>
-          <li><%= link_to "Forgot your password?", new_password_path('user') %></li>
-
+                   
           <% end %>
-
-        <% end %>
-        
-      </ul>
   </div>
 
 
