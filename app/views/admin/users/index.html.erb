@@ -12,8 +12,9 @@
           <td><%= user.birth_year %></td>
           <td><%= user.memories.count %></td>
           <td><%= link_to "Edit", edit_user_registration_path(user) %></td>
-          <td><%= link_to "Remove", user, method: :delete, data: {confirm: "Are you sure?" } %>
+          <td><%= button_to "Remove", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?" } %>
         </tr>
         <% end %>
       <tbody>
+        <%= link_to "Admin Home", admin_root_path %>
 </table>

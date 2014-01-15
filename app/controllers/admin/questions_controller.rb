@@ -1,5 +1,5 @@
 class Admin::QuestionsController < Admin::AdminController
-  before_action :set_question, except: [:index, :new]
+  before_action :set_question, except: [:index, :new, :create]
 
   def index
     @questions = Question.all
@@ -21,6 +21,21 @@ class Admin::QuestionsController < Admin::AdminController
     else
       render action: 'edit'
     end
+  end
+
+  def create
+    @question = Question.new(question_params)
+
+    if @question.save
+      redirect_to admin_questions_path, notice: "Successfully added question."
+    else
+      render :new, notice: 'failure'
+    end
+  end
+
+  def destroy
+    @question.destroy
+    redirect_to admin_questions_path
   end
 
   private

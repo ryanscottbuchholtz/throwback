@@ -10,8 +10,9 @@
           <td><%= memory.year %></td>
           <td><%= memory.season %></td>
           <td><%= memory.user.full_name %></td>
-          <td><%= link_to "Remove", memory, method: :delete, data: {confirm: "Are you sure?" } %>
+          <td><%= button_to "Remove", admin_memory_path(memory), method: :delete, data: {confirm: "Are you sure?" } %>
         </tr>
         <% end %>
       <tbody>
+        <%= link_to "Admin Home", admin_root_path %>
 </table>
