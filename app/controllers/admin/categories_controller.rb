@@ -1,55 +1,36 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_user, :set_category, only: [:show, :edit, :update, :destroy]
+class Admin::CategoriesController < Admin::AdminController
+  before_action :set_category, except: [:index, :new]
 
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def new
     @category = Category.new
   end
 
-  def create
-    @category = Category.new(category_params)
-
-    if @category.save
-      redirect_to categories_path, notice: "Successfully added category."
-    else
-      render :new
-    end
+  def edit
   end
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render action: 'edit'
     end
   end
 
-  def destroy
-    @category.destroy
-    redirect_to categories_path
-  end
-
-
-  protected
-
-  def set_category
-    @category = Category.find(params[:id])
-  end
+  private
 
   def category_params
     params.require(:category).permit(:name)
   end
 
-  def authenticate_user
-    unless user_signed_in? and current_user.is_admin?
-      raise ApplicationController::RoutingError.new('Not Found')
-    end
+  def set_category
+    @category = Category.find(params[:id])
   end
+
 end

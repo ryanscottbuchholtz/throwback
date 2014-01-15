@@ -2,7 +2,6 @@ Throwback::Application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit]
   resources :dashboard, only: [:index]
-  resources :admin, only: [:index]
   resources :memories, only: [:index, :edit, :destroy, :update]
 
   resources :contact, only: [:new, :create]
@@ -22,10 +21,8 @@ Throwback::Application.routes.draw do
   resources :samples, only: [:index]
 
   namespace :admin do
-    resources :questions
-    resources :categories
-    resources :users
-   
+    root to: "admin#index"
+    resources :questions, :categories, :users, :memories
   end
 
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get

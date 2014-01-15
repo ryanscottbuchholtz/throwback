@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <td><h1>Memories</h1></td>
+      <tbody>
+        <% @memories.each do |memory| %>
+        <tr>
+          <td><%= memory.question.question %></td>
+          <td><%= memory.question.category.name %></td>
+          <td><%= memory.body %></td>
+          <td><%= memory.year %></td>
+          <td><%= memory.season %></td>
+          <td><%= memory.user.full_name %></td>
+          <td><%= link_to "Remove", memory, method: :delete, data: {confirm: "Are you sure?" } %>
+        </tr>
+        <% end %>
+      <tbody>
+</table>

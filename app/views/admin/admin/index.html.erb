@@ -1,0 +1,8 @@
+<h1>Administrator Tools</h1>
+  <ul>
+    <li><%= button_to "Categories", admin_categories_path(@categories), method: :get %></li>
+    <li><p><%= button_to "Questions", admin_questions_path(@questions), method: :get %></li>
+    <li><p><%= button_to "Users", admin_users_path(@users), method: :get %></li>
+    <li><p><%= button_to "Memories", admin_memories_path, method: :get %></li>
+  </ul>
+      

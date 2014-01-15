@@ -1,11 +1,12 @@
 <table class="table table-striped">
   <thead>
-    <td><h1>Category - <%= link_to 'New Category', new_category_path %></h1></td>
+    <td><h1>Category - <%= link_to 'New Category', new_admin_category_path %></h1></td>
       <tbody>
         <% @categories.each do |category| %>
         <tr>
           <td><%= category.name %></td>
-          <td><%= link_to "Edit", edit_category_path(category) %></td>
+          <td><%= category.id %></td>
+          <td><%= link_to "Edit", edit_admin_category_path(category) %></td>
           <td><%= link_to "Remove", category, method: :delete, data: {confirm: "Are you sure?" } %>
         </tr>
         <% end %>

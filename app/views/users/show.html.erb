@@ -6,4 +6,7 @@
     <li><b>Number of Memories: </b><%= @user.memories.count %></li>
   </ul>
 
-<%= link_to 'edit your profile', edit_user_registration_path(current_user) %>
+<p><%= link_to 'Edit your Profile', edit_user_registration_path(current_user) %></p>
+<% if current_user.is_admin? %>
+  <%= link_to 'Admin tools', admin_root_path %>
+  <% end %>
