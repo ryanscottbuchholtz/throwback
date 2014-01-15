@@ -3,7 +3,7 @@
     <p class="lead">Write a memory now.  Select a category and a thought provoking question will be presented to you.  Take a moment to think on the question and, when you are ready, start your memoir piece.  When you are done, save it and do it all over again!  Good luck, and happy writing.</P><br>
     <ul class="nav nav-justified">
       <% @categories.each do |cat| %>
-      <li><p><%= button_to cat.name, category_questions_path(cat), :class =>"btn btn-success", method: :get %></p></li>
+      <li><p><%= link_to cat.name, category_questions_path(cat), :class =>"btn btn-success", method: :get %></p></li>
       <% end %>
 </div>
       

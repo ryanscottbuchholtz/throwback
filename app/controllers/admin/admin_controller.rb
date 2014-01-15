@@ -10,4 +10,8 @@ class Admin::AdminController < ActionController::Base
     end
   end
 
+  def is_admin?
+    role == 'admin'
+  end
+
 end
