@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  #before_filter :user_authorization
   
   def edit
     @user = current_user
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user[:id])
   end
 
   def update
@@ -23,6 +24,10 @@ private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :birth_year, :birth_month, :birth_day)
+  end
+
+  def user_authorization
+    redirect_to(root_path) unless current_user.id == params[:id]
   end
 
 end

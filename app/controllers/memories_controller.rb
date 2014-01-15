@@ -2,7 +2,7 @@ class MemoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_memory, only: [:destroy, :show, :update, :edit]
   has_scope :year
-  has_scope :quesion
+  has_scope :question
   has_scope :season
 
   def index
