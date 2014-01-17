@@ -13,8 +13,9 @@ feature 'existing user signs in', %Q{
   # * If I am already signed in, I can't sign in again
   # * I am directed to my throwback timeline
 
+  let(:user) {FactoryGirl.create(:user)}
+
   scenario 'existing user specifies valid and required information (happy path)' do
-    user = FactoryGirl.create(:user)
 
     visit root_path
     fill_in 'user[email]', with: user.email
@@ -38,7 +39,6 @@ feature 'existing user signs in', %Q{
   end
 
   scenario 'existing email, wrong password is denied access' do
-    user = FactoryGirl.create(:user)
 
     visit root_path
     fill_in 'user[email]', with: user.email

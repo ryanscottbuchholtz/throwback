@@ -1,7 +1,8 @@
 <div class="jumbotron">
   <h1><%= @question.category.name %></h1><br>
   <p><%= @question.question %></p><br>
-  <p><%= link_to "Write Memory", new_question_memory_path(@question), :class => "btn btn-lg btn-success" %>
-     <%= link_to "Skip and get another", category_questions_path, :class => "btn btn-primary btn-lg" %>
+  <p><%= link_to "Write Memory", new_question_memory_path(@question), class: "btn btn-lg btn-success" %>
+     <%= link_to "Skip and get another", category_questions_path, class: "btn btn-primary btn-lg" %>
+     <%= link_to "Skip forever", new_question_dna_question_path(@question), class: "btn btn-lg btn-danger" %>
   </p>
 </div>

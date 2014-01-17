@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h1><%= @question.category.name %></h1><br>
+  <p><%= @question.question %></p></br>
+  <p><i><b>This action cannot be undone.  Please confirm that you would like to never see this question again.</b></i></p>
+    <%= simple_form_for @dna_question, url: question_dna_questions_path do |f| %>
+     <%= f.input :question_id, as: :hidden, value: @question.id %>
+     <%= f.input :user_id, as: :hidden, value: current_user.id %><br>
+     <%= link_to :back, "Go Back", class: "btn btn-lg btn-primary" %>
+     <%= f.button :submit, "Skip forever", class: "btn btn-lg btn-danger" %>
+    <% end %>
+ </div>

@@ -9,11 +9,15 @@ Throwback::Application.routes.draw do
   post 'contact' => 'contacts#create'
 
   resources :categories, only: [:show] do 
-    resources :questions, only: [:index]
+    resources :questions, only: [:index, :show]
   end
 
   resources :questions, only: [:index] do
     resources :memories, only: [:new, :create]
+  end
+
+  resources :questions, only: [:index] do
+    resources :dna_questions, only: [:new, :create]
   end
 
   resources :testimonials, only: [:index]
@@ -24,6 +28,7 @@ Throwback::Application.routes.draw do
     root to: "admin#index"
     resources :questions, :categories, :users, :memories
   end
+
 
   #match 'contact' => 'contact#new', :as => 'contact', :via => :get
   #match 'contact' => 'contact#create', :as => 'contact2', :via => :post

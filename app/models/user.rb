@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :questions,
     through: :memories
 
+  has_many :dna_questions,
+    inverse_of: :user
+
   def is_admin?
     role == 'admin'
   end
@@ -35,7 +38,7 @@ class User < ActiveRecord::Base
         :BIRTHDAY => self.birth_year
       },
       :double_optin => false,
-      :send_welcome => true
+      :send_welcome => false
     })
   end
 

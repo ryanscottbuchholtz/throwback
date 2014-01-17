@@ -9,5 +9,8 @@ class Question < ActiveRecord::Base
 
   belongs_to :category,
     inverse_of: :questions
+
+  has_many :dna_questions,
+    inverse_of: :question
     
 end
