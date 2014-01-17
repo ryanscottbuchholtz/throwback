@@ -15,16 +15,16 @@ feature 'registered user opts out of a question forever', %q{
   let(:user) {FactoryGirl.create(:user)}
 
   scenario 'user clicks do not ask again(happy path)' do
+    category = FactoryGirl.create(:category)
 
     visit root_path
-    visit root_path
+
     fill_in 'user[email]', with: user.email
     fill_in 'user[password]', with: user.password
     click_button 'Sign In'
 
-    click_button 'Your Dashboard'
-    click_button 'Travel'
-    click_button 'Skip Forever'
+    click_link 'Travel'
+    click_link 'Skip Forever'
 
   end
 end

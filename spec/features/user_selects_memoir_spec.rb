@@ -16,8 +16,9 @@ feature 'authenticated user selects a memory to write', %Q{
   # * User clicks save
   # * User is redirected to dashboard
 
-  scenario 'existing user clicks on Elementary School' do
+  scenario 'existing user clicks on Travel' do
     user = FactoryGirl.create(:user)
+    category = FactoryGirl.create(:category)
 
     visit root_path
     fill_in 'user[email]', with: user.email
@@ -25,9 +26,9 @@ feature 'authenticated user selects a memory to write', %Q{
     click_button 'Sign In'
 
     save_and_open_page
-    expect(page).to have_content('Write a memory now')
+    expect(page).to have_content('Time to throwback')
     expect(page).to have_content('Sign Out')
-    click_button 'value=Travel'
+    click_link 'Travel'
    
   end
 
