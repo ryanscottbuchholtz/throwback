@@ -7,7 +7,7 @@
 <%= simple_form_for(@memory, :url => question_memories_path, :class =>'form') do |f| %>
   <%= f.input :question_id, :as => :hidden, value: @question.id %>
   <%= f.input :user_id, :as => :hidden, value: current_user.id %>
-  <%= f.input_field :body, label: false, required: true, placeholder: "Capture Memory Here", :class =>"form-control input-lg", :rows =>"10" %>
+  <%= f.input_field :body, label: false, required: true, placeholder: "Capture Memory Here", class: "form-control input-lg", :rows =>"10" %>
 </div>
 <br>
  <br>
@@ -15,14 +15,14 @@
     <br>
   <div class="row">
     <div class="col-xs-4 col-md-4">
-  <%= f.input_field :year, collection: 1935..2014, prompt: 'Year', required: true, :class =>"form-control input-lg" %>
+  <%= f.input_field :year, collection: 1935..2014, prompt: 'Year', required: true, class: "form-control input-lg" %>
     </div>
     <div class="col-xs-4 col-md-4">
-  <%= f.input_field :season, collection: ['Late Winter', 'Spring', 'Summer', 'Fall', 'Early Winter'], prompt: 'Season', required: true, :class =>"form-control input-lg" %>
+  <%= f.input_field :season, collection: ['Late Winter', 'Spring', 'Summer', 'Fall', 'Early Winter'], prompt: 'Season', required: true, class: "form-control input-lg" %>
     </div>
 
-  <%= f.button :submit, "Save", :class =>"btn btn-lg btn-success pull-right" %>
-  <%= link_to "Cancel", :back, :class =>"btn btn-lg btn-danger pull-right" %>
+  <%= f.button :submit, "Save", class: "btn btn-lg btn-success pull-right" %>
+  <%= link_to "Cancel", :back, class: "btn btn-lg btn-danger pull-right" %>
 
 </div>
 

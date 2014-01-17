@@ -14,9 +14,9 @@
     <p class="lead"><%= memory.body %></p>
       <ul class="nav nav-justified">
         <p class="text-muted">Tags</p>
-          <li><%= link_to memory.question.category.name, {controller: 'memories', action: 'index', :category => memory.question.category} %></li>
-          <li><%= link_to memory.year, {controller: 'memories', action: 'index', :year => memory.year} %></li>
-          <li><%= link_to memory.season, {controller: 'memories', action: 'index', :season => memory.season} %></li>
+          <li><%= link_to memory.question.category.name, {controller: 'memories', action: 'index', category: memory.question.category} %></li>
+          <li><%= link_to memory.year, {controller: 'memories', action: 'index', year: memory.year} %></li>
+          <li><%= link_to memory.season, {controller: 'memories', action: 'index', season: memory.season} %></li>
           <li><p><%= link_to "Edit Memory", edit_memory_path(memory), class: "btn btn-sm btn-primary pull-right" %></p></li>
           <li><p><%= link_to "Delete Memory", memory, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-sm btn-danger pull-right" %></p></li>
       </ul>

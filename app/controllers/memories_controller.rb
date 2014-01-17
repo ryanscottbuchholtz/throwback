@@ -6,9 +6,7 @@ class MemoriesController < ApplicationController
   has_scope :season
 
   def index
-    @memories = apply_scopes(current_user.memories).paginate(:page => params[:page], :per_page => 3)
-    # sorted_year = @memories.sort_by &:year
-    # sorted_category = @memories.sort_by &:category
+    @memories = apply_scopes(current_user.memories).paginate(page: params[:page], per_page: 3)
   end
 
   def new

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  #before_filter :user_authorization
   
   def edit
     @user = current_user

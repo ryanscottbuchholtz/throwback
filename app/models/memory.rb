@@ -12,6 +12,6 @@ class Memory < ActiveRecord::Base
   belongs_to :user,
     inverse_of: :memories
 
-  validates :question, uniqueness: { :scope => :user }
+  validates :question, uniqueness: { scope: :user }
   
 end
