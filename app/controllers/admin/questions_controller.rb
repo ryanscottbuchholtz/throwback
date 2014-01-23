@@ -2,7 +2,7 @@ class Admin::QuestionsController < Admin::AdminController
   before_action :set_question, except: [:index, :new, :create]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.paginate(page: params[:page], per_page: 15)
   end
 
   def show
