@@ -26,5 +26,11 @@ feature 'registered user opts out of a question forever', %q{
     click_link 'Travel'
     click_link 'Skip Forever'
 
+    expect_page.to have_content('Please confirm')
+
+    click_link 'Skip Forever'
+
+    expect_page.to have_content('Time to throwback')
+
   end
 end
