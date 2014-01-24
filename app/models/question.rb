@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  validates_presence_of :category_id
+  validates_presence_of :category, :question
   
   has_many :memories,
     inverse_of: :question
